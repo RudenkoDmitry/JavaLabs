@@ -1,7 +1,7 @@
 package org.example;
 
 public interface ArrayListAbstract <T> {
-    T get(int index);
+    Object get(int index);
 
     void set(int index, T data);
 
@@ -20,6 +20,9 @@ public interface ArrayListAbstract <T> {
     int getIndex(T data);
 
     void clear();
+
+    boolean contains(T data);
+    Object[] toArray();
 
 }
 

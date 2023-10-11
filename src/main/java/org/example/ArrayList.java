@@ -9,9 +9,9 @@ public class ArrayList<T> implements ArrayListAbstract<T> {
         array = new Object[count];
     }
     @Override
-    public T get(int index) {
+    public Object get(int index) {
         if (isIndexTrue(index))
-            return (T) array[index];
+            return array[index];
         else
             return null;
     }
@@ -85,7 +85,6 @@ public class ArrayList<T> implements ArrayListAbstract<T> {
             if (array[i].equals( data))
                 return i;
         }
-
         return -1;
     }
 
@@ -94,6 +93,18 @@ public class ArrayList<T> implements ArrayListAbstract<T> {
         count = 10;
         size = 0;
         array = new Object[count];
+    }
+
+    @Override
+    public boolean contains(T data) {
+        return getIndex(data) != -1;
+    }
+
+    @Override
+    public Object[] toArray(){
+        Object[] newArray = new Object[size];
+        System.arraycopy(array, 0, newArray, 0, size);
+        return newArray;
     }
 
     private boolean isIndexTrue(int index){
